@@ -1366,6 +1366,10 @@ namespace Sdl.Tridion.Api.Client.ContentModel
 	/// </summary>
 	public class InputSortParam
 	{
+		public string Key { get; set; }
+
+		public MetadataType KeyType { get; set; }
+
 		/// <summary>
 		/// The sort order type.
 		/// </summary>
@@ -1389,6 +1393,19 @@ namespace Sdl.Tridion.Api.Client.ContentModel
 		Ascending,
 
 		Descending
+	}
+
+	[JsonConverter(typeof(StringEnumConverter))]
+	public enum MetadataType
+	{
+		/// <summary>
+		/// A string value
+		/// </summary>
+		STRING,
+
+		DATE,
+
+		FLOAT
 	}
 
 	/// <summary>
@@ -1442,7 +1459,12 @@ namespace Sdl.Tridion.Api.Client.ContentModel
 		/// </summary>
 		TITLE,
 
-		UPDATED_DATE
+		UPDATED_DATE,
+
+		/// <summary>
+		/// CUSTOM_META
+		/// </summary>
+		CUSTOM_META
 	}
 
 	/// <summary>
